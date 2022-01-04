@@ -12,7 +12,7 @@
 ?>
     </main><!-- /.container -->
 
-    <footer class="blog-footer bg-white mt-4 border border-dark rounded-top">
+    <footer class="blog-footer bg-white mt-2 border border-dark rounded-top">
 	<div class="row d-flex justify-content-between align-items-start">
 	    <div class="col-4 pt-1"></div>
 	    <div class="col-4 text-center">
