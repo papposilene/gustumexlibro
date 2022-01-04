@@ -82,7 +82,7 @@ if ( ! function_exists( 'gustumexlibro_post_nav' ) ) :
         }
 
         ?>
-        <nav class="navigation post-navigation mt-3 p-3 bg-white border border-dark rounded" role="navigation">
+        <nav class="navigation post-navigation mt-3" role="navigation">
 	    <!--h3 class="screen-reader-text"><?php /* translators: post navigation */ esc_html_e( 'Post Navigation', 'gustumexlibro' ); ?></h3-->
 	    <div class="nav-links d-flex">
 		<div class="nav-next justify-content-start">
