@@ -35,7 +35,7 @@ get_header();
 	endwhile;
 	echo '</div><!-- /.row -->';
 	echo '<div class="row mb-2">';
-	echo '<div class="col-12">';
+	echo '<div class="col-12 p-3 bg-white border border-dark rounded">';
 	gustumexlibro_posts_nav();
 	echo '</div><!-- col -->';
 	echo '</div><!-- row -->';
