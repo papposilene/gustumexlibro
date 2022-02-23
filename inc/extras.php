@@ -5,6 +5,27 @@
  * @package gustumexlibro
  */
 
+
+/**
+ * Ads
+*/
+if ( ! function_exists( 'gustumexlibro_ads' ) ) :
+    function gustumexlibro_ads(){
+        $text = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7962892956627083" crossorigin="anonymous"></script>';
+        $text = '<ins class="adsbygoogle"';
+        $text = 'style="display:block"';
+        $text = 'data-ad-client="ca-pub-7962892956627083"';
+        $text = 'data-ad-slot="2947706354"';
+        $text = 'data-ad-format="auto"';
+        $text = 'data-full-width-responsive="true"></ins>';
+        $text = '<script>';
+        $text = '(adsbygoogle = window.adsbygoogle || []).push({});';
+        $text = '</script>';
+        echo $text;
+    }
+    //add_action( 'gustumexlibro_content', 'gustumexlibro_ads' );
+endif;
+
 /**
  * Footer Credits
 */
