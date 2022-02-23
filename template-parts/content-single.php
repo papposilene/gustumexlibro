@@ -6,13 +6,12 @@
  *
  * @package gustumexlibro
  */
-
 ?>
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-		    <div class="p-3 bg-white border border-dark rounded">
-			<?php gustumexlibro_post_thumbnail(); ?>
-			<div class="card my-3">
-			    <div class="card-header">
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<div class="p-3 bg-white border border-dark rounded">
+		<?php gustumexlibro_post_thumbnail(); ?>
+		<div class="card my-3">
+		    <div class="card-header">
 				<ul class="nav nav-tabs card-header-tabs" id="infoTab" role="tablist">
 				    <li class="nav-item">
 					<a class="nav-link active" id="notation-tab" data-toggle="tab" href="#notation" role="tab" aria-controls="notation" aria-selected="true"><?php /* translators: verdict on the tested product */ esc_html_e( 'Verdict', 'gustumexlibro' ); ?></a>
@@ -24,8 +23,8 @@
 					<a class="nav-link" id="meta-tab" data-toggle="tab" href="#meta" role="tab" aria-controls="meta" aria-selected="false"><?php /* translators: informations */ esc_html_e( 'Informations', 'gustumexlibro' ); ?></a>
 				    </li>
 				</ul>
-			    </div>
-			    <div class="tab-content" id="infoTabContent">
+			</div>
+		    <div class="tab-content" id="infoTabContent">
 				<div class="card-body tab-pane fade show active" id="notation" role="tabpanel" aria-labelledby="notation-tab">
 				    <p class="card-text p-2 m-3 text-center">
 					<?php
@@ -34,6 +33,8 @@
 					$test_taste = $post->note_taste;
 					$test_balance = $post->note_balance;
 					$test_average = $post->note_average;
+					$price_currency = $post->currency;
+					$price_amount = $post->cost;
 
 					if($test_aesthetic == 0) {
 					    $color_aesthetic = 'dark text-white';
@@ -96,6 +97,9 @@
 					<span class="badge m-1 p-2 badge-<?php echo $color_average; ?>">
 					    <i class="fas fa-gavel fa-lg fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<?php echo $test_average; ?>/10
 					</span>
+					<span class="badge m-2 p-2 badge-info">
+					    <i class="fas fa-money-bill-wave fa-lg fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<?php echo $price_currency; ?> <?php echo $price_amount; ?>
+					</span>
 				    </p>
 				    <p class="card-text text-muted text-justify">
 					<small>
@@ -142,86 +146,99 @@
 				    <p class="card-text"><?php gustumexlibro_postedon_header(); ?></p>
 				    <p class="card-text"><?php gustumexlibro_entrymeta_header(); ?></p>
 				</div>
-			    </div><!-- .tab-content -->
-			</div><!-- .card -->
-			<?php
-		        the_title( '<h2 class="blog-post-title entry-title p-3 mb-0 text-center">', '</h2>' );
-		        ?>
-			<?php
-			the_content();
-			wp_pagenavi( array( 'type' => 'multipart' ) );
-			//wp_link_pages(
-			//    array(
-				/* translators: Pages */
-			//	'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'gustumexlibro' ),
-			//	'after'  => '</div>'
-			//    )
-			//);
-			?>
-			<ul class="rrssb-buttons clearfix">
-			    <li class="rrssb-facebook">
+			</div><!-- .tab-content -->
+		</div><!-- .card -->
+		<?php
+	    the_title( '<h2 class="blog-post-title entry-title p-3 mb-0 text-center">', '</h2>' );
+	    ?>
+		<?php
+		the_content();
+		wp_pagenavi( array( 'type' => 'multipart' ) );
+		//wp_link_pages(
+		//    array(
+			/* translators: Pages */
+		//	'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'gustumexlibro' ),
+		//	'after'  => '</div>'
+		//    )
+		//);
+		?>
+		<ul class="rrssb-buttons clearfix">
+			<li class="rrssb-facebook">
 				<a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" class="popup">
 				    <span class="rrssb-icon"><i class="fab fa-facebook fa-lg"></i></span>
 				    <span class="rrssb-text">facebook</span>
 				</a>
-			    </li>
-			    <li class="rrssb-twitter">
+		    </li>
+		    <li class="rrssb-twitter">
 				<a href="https://twitter.com/intent/tweet?text=<?php the_permalink(); ?>" class="popup">
 				    <span class="rrssb-icon"><i class="fab fa-twitter fa-lg"></i></span>
 				    <span class="rrssb-text">twitter</span>
 				</a>
-			    </li>
-			    <li class="rrssb-googleplus">
+			</li>
+		    <li class="rrssb-googleplus">
 				<a href="https://plus.google.com/share?url=<?php the_permalink(); ?>" class="popup">
 				    <span class="rrssb-icon"><i class="fab fa-google-plus fa-lg"></i></span>
 				    <span class="rrssb-text">twitter</span>
 				</a>
-			    </li>
-			    <li class="rrssb-pinterest">
+			</li>
+		    <li class="rrssb-pinterest">
 				<a href="http://pinterest.com/pin/create/button/?url=<?php the_permalink(); ?>" class="popup">
 				    <span class="rrssb-icon"><i class="fab fa-pinterest fa-lg"></i></span>
 				    <span class="rrssb-text">pinterest</span>
 				</a>
-			    </li>
-			    <li class="rrssb-tumblr">
+			</li>
+		    <li class="rrssb-tumblr">
 				<a href="https://twitter.com/intent/tweet?text=<?php the_permalink(); ?>" class="popup">
 				    <span class="rrssb-icon"><i class="fab fa-tumblr fa-lg"></i></span>
 				    <span class="rrssb-text">tumblr</span>
 				</a>
-			    </li>
-			    <li class="rrssb-email">
+			</li>
+		    <li class="rrssb-email">
 				<a href="mailto:?Subject=Tu%20Peux%20Pas%20Zeste">
 				    <span class="rrssb-icon"><i class="fas fa-at fa-lg"></i></span>
 				    <span class="rrssb-text">email</span>
 				</a>
-			    </li>
-			</ul>
-			<?php if ( get_edit_post_link() ) : ?>
-			<p class="entry-footer">
-			    <?php
-			    edit_post_link(
-				sprintf(
-				    wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Edit <span class="screen-reader-text">%s</span>', 'gustumexlibro' ),
-					array(
-					    'span' => array(
-						'class' => array()
-					    )
-					)
-				    ),
-				    get_the_title()
-				),
-				'<span class="edit-link d-block mt-3 p-1 border border-danger rounded">',
-				'</span>'
-			    );
-			    ?>
-			</p><!-- .entry-footer -->
-			<?php endif; ?>
-		    </div><!-- /.blog-post -->
-		</article><!-- #post-<?php the_ID(); ?> -->
-		<?php
-		if ( class_exists( 'Jetpack_RelatedPosts' ) ) {
-			echo do_shortcode( '[gustumexlibro_jetpackrelatedposts_shortcode]' );
-		}
-		?>
+			</li>
+		</ul>
+		<?php if ( get_edit_post_link() ) : ?>
+		<p class="entry-footer">
+			<?php
+		    edit_post_link(
+			sprintf(
+			    wp_kses(
+				/* translators: %s: Name of current post. Only visible to screen readers */
+				__( 'Edit <span class="screen-reader-text">%s</span>', 'gustumexlibro' ),
+				array(
+				    'span' => array(
+					'class' => array()
+				    )
+				)
+			    ),
+				get_the_title()
+			),
+			'<span class="edit-link d-block mt-3 p-1 border border-danger rounded">',
+			'</span>'
+		    );
+			?>
+		</p><!-- .entry-footer -->
+		<?php endif; ?>
+	</div><!-- /.blog-post -->
+</article><!-- #post-<?php the_ID(); ?> -->
+<div id="adsense-content" class="mt-3 p-3 bg-white border border-dark rounded">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7962892956627083" crossorigin="anonymous"></script>
+		<!-- Footer -->
+		<ins class="adsbygoogle"
+			style="display:block"
+			data-ad-client="ca-pub-7962892956627083"
+			data-ad-slot="2947706354"
+			data-ad-format="auto"
+			data-full-width-responsive="true"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+</div>
+<?php
+if ( class_exists( 'Jetpack_RelatedPosts' ) ) {
+	echo do_shortcode( '[gustumexlibro_jetpackrelatedposts_shortcode]' );
+}
+?>
